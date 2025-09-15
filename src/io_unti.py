@@ -32,3 +32,20 @@ def txs_to_dataframe(txs: list) -> pd.DataFrame:
     keep = ["hash","from","to","value_eth","gas_cost_eth","timestamp"]
     return df[[c for c in keep if c in df.columns]].copy()
 
+def pretty_print_txs(df: pd.DataFrame, limit: int = 10) -> None:
+    """
+    Print a nice summary of the first N transactions in the DataFrame.
+    """
+    if df.empty:
+        print("No transactions to display.")
+        return
+
+    for i, row in df.head(limit).reset_index(drop=True).iterrows():
+        print(f"{i+1}) From            : {row.get('from')}")
+        print(f"    To              : {row.get('to')}")
+        print(f"    Value (Ether)   : {row.get('value_eth')}")
+        print(f"    Gas Cost (ETH)  : {row.get('gas_cost_eth')}")
+        ts = row.get("timestamp")
+        ts_str = ts.strftime('%Y-%m-%d %H:%M:%S UTC') if pd.notna(ts) else "N/A"
+        print(f"    Timestamp       : {ts_str}")
+        print("-" * 40)
