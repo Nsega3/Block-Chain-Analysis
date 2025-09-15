@@ -1,0 +1,7 @@
+requests
+matplotlib
+networkx
+python-dotenv
+yfinance    # for Task 2 market data
+
+Additional imports used for this project
