@@ -1,0 +1,35 @@
+This file contains instructions on setting up and running on a Windows system (AI was used to summarise and test this portion)
+
+For Windows,
+1) Make sure GitHub and Python are installed
+
+winget install --id Git.Git -e
+winget install --id Python.Python.3.11 -e
+
+2) Clone this GitHub repo to your system using
+
+cd C:\Users\Nsega3\Documents
+git clone https://github.com/Nsega3/Block-Chain-Analysis.git
+cd Block-Chain-Analysis
+
+3) Activate virtual environment (As well as allow Policy bypass: Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.venv\Scripts\Activate.ps1)
+
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+
+4)Install dependencies listed in requirements.txt
+
+pip install -r requirements.txt
+
+5)Create env, to privately input your own API Key 
+
+copy .env.example .env
+notepad .env
+
+6)Check output folder exists
+mkdir data\outputs
+
+7) Run program 
+
+python -m src.task1_wallet_graph --wallet 0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae --limit 10
