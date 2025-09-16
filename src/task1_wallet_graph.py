@@ -1,7 +1,7 @@
 import argparse
 import pandas as pd
-from .io_utils import fetch_normal_transactions, txs_to_dataframe
 from .viz_utils import plot_wallet_graph
+from .io_utils import fetch_normal_transactions, txs_to_dataframe, pretty_print_txs
 
 def build_edges(df: pd.DataFrame) -> pd.DataFrame:
     if df.empty: return df
@@ -19,6 +19,7 @@ def main():
     args = p.parse_args()
 
     txs = fetch_normal_transactions(args.wallet, args.limit, "desc")
+    pretty_print_txs(df, args.limit)
     df = txs_to_dataframe(txs)
     edges = build_edges(df.head(args.limit))
     edges.to_csv(args.out_csv, index=False)
