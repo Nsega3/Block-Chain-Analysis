@@ -1,9 +1,0 @@
-pandas
-requests
-python-dateutil
-plotly
-streamlit
-python-dotenv
-tqdm
-numpy
-# Needed to run the program
