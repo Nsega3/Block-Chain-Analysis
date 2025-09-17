@@ -1,3 +1,0 @@
-# .env.example
-ETHERSCAN_API_KEY=your_etherscan_key
-DUNE_API_KEY=your_dune_key
